@@ -169,19 +169,9 @@ for nrx = 1:length(NRx)
         title ('Sensing performance curve for a ISAC+RIS System')
 
     end
-    
-
-
-       
-           
-
-    
-
-
-    
 end
 
-set(gca,'FontSize',15)
+
 
 
 
