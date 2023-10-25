@@ -3,7 +3,7 @@ clc;
 close all;
 
 % Parameters
-L = 1e5; %data size
+L = 1e4; %data size
 M = 4; %modulation order
 
 NTx = 4; %number of transmit antennas
@@ -59,7 +59,7 @@ for nrx = 1:length(NRx)
     % Independent subchannels
     Q = sqrtm(inv(R)); % Whitening matrix
 
-    for n = 1:length(N)
+%     for n = 1:length(N)
 
         % Matrices to store data
         discrepancy = [];
@@ -145,19 +145,19 @@ for nrx = 1:length(NRx)
         
         %Plot Curves
         figure(1)
-        loglog(beta,discrepancy,'-s','LineWidth',1.5,'DisplayName',strcat('N : ',num2str(N(n))));
+        loglog(beta,discrepancy,'-s','LineWidth',1.5,'DisplayName',strcat('NRx : ',num2str(NRx(nrx))));
         hold on
         grid on
         box on
         xlim([beta(1),beta(length(beta))]);
         legend('show','FontSize',14)
         xlabel("\beta (Communication Signal Power)")
-        ylabel("BER",'FontSize')
+        ylabel("BER")
         title ('SNR vs BER curve for a ISAC+RIS System')
 
     
         figure(2)
-        loglog(beta,mse_IC,'-s','LineWidth',1.5, 'DisplayName',strcat('N: ',num2str(N(n))));
+        loglog(beta,mse_IC,'-s','LineWidth',1.5, 'DisplayName',strcat('NRx: ',num2str(NRx(nrx))));
         hold on
         grid on
         box on
@@ -165,15 +165,8 @@ for nrx = 1:length(NRx)
         xlim([beta(1),beta(length(beta))]);
 
         xlabel("\beta (Communication Signal Power)")
-        ylabel("MSE of \alpha",'FontSize')
+        ylabel("MSE of \alpha")
         title ('Sensing performance curve for a ISAC+RIS System')
 
-    end
+%     end
 end
-
-
-
-
-
-
-
