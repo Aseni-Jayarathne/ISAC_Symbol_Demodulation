@@ -10,7 +10,9 @@ NTx = 4; %number of transmit antennas
 NRx = [1,2,4]; %number of receiver antennas
 
 phase_shift = 0; %artificial phase shift
-constellation = pskmod(0:(M-1), M, phase_shift); %Alphabet
+constellation_set = pskmod(0:(M-1), M, phase_shift); %Alphabet
+scaling_factor = max(abs(constellation_set))/sqrt(2);
+constellation = constellation_set/scaling_factor;
 beta = logspace(-3, 3, 20); %power of communication signal
 gamma = 1; %power of sensing signal
 theta = 30; %target angle
