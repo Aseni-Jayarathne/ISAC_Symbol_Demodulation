@@ -30,14 +30,14 @@ p = 1; %number of minimum points for Maximum Likelihood detection
 data_UE = randi([0 M-1],1, L);
 data_bin_UE = de2bi(data_UE,log2(M)); 
 
-txSig_UE = pskmod(data_UE,M,phase_shift); %Transmitted signal from UE
+txSig_UE = pskmod(data_UE,M,phase_shift)/scaling_factor; %Transmitted signal from UE
 
 
 % Target
 data_T = randi([0 1],1, L);
 data_bin_T = de2bi(data_T,log2(M));
 
-txSig_T = pskmod(data_T,M,phase_shift); %Transmitted signal from target
+txSig_T = pskmod(data_T,M,phase_shift)/scaling_factor; %Transmitted signal from target
 
 
 
